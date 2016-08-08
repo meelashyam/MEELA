@@ -1,0 +1,94 @@
+1. Deploy CampaignService.war in Tomcatserver7 version
+
+2. Below are the URLS to access the service and please use the por(8090) number based on the server you setup.
+
+
+http://localhost:8090/RestService/ad/1234   --- This is for POST request for ad Campaign and request should be like below
+
+{
+ "partner_id": "unique_string_representing_partner',
+ "duration": "int_representing_campaign_duration_in_seconds_from_now"
+ "ad_content": "string_of_content_to_display_as_ad"
+}
+
+{
+ "partner_id": "1234",
+ "duration": "190",
+ "ad_content": "AD COMPAIGN CONTENT"
+}
+
+Response should be like below
+
+{
+"partner_id": "456778"
+"success": "Successfully created Campaign for given partner ID"
+}
+
+
+
+http://localhost:8090/CampaignService/ad/1234   -----  this is for GET request to fetch the active ad campaign details based on partner id. return response should be below.
+
+* Active ad campaign then below is the response
+
+{
+"partner_id": "4567"
+"duration": "190"
+"ad_content": "AD COMPAIGN CONTENT"
+"created": "2016-08-08T13:47:13.053-04:00"
+"success": "SUCCESS"
+}
+
+*   Ad Campaign is existing but not active then below is the response
+
+{
+"partner_id": "1234"
+"error": "NO active ad campaign exists for this partner Id"
+}
+
+
+* There is no ad campaign exists then below is the response
+
+{
+"partner_id": "12345"
+"error": "NO Campaign exists for this partner id"
+}
+
+
+
+
+http://localhost:8090/CampaignService/ad/all/1234   ------  This is for GET all ad campaigns for given partner Id
+
+
+* If ad campaings exists then below is the response
+
+{
+"data": [3]
+0:  {
+"duration": "120"
+"created": "2016-08-07T18:58:32.304-04:00"
+}-
+1:  {
+"duration": "120"
+"ad_content": "Test Campaign"
+"created": "2016-08-07T21:28:15.053-04:00"
+}-
+2:  {
+"duration": "120"
+"ad_content": "Test Campaign for testing"
+"created": "2016-08-07T21:29:15.248-04:00"
+}-
+
+}
+
+
+* If no campaings exists then below is the resposse
+
+{
+"data": {
+"error": "No ad campaign found based on this Parent ID"
+}-
+}
+
+
+
+
