@@ -1,6 +1,6 @@
 1. Deploy CampaignService.war in Tomcatserver7 version
 
-2. Below are the URLS to access the service and please use the por(8090) number based on the server you setup.
+2. Below are the URLS to access the service and please use the por(8090) number based on the server you setup. And use any SOAP test client tool for testing
 
 
 http://localhost:8090/RestService/ad/1234   --- This is for POST request for ad Campaign and request should be like below
