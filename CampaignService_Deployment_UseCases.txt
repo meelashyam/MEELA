@@ -81,7 +81,7 @@ http://localhost:8090/CampaignService/ad/all/1234   ------  This is for GET all 
 }
 
 
-* If no campaings exists then below is the resposse
+* If no campaings exists then below is the response
 
 {
 "data": {
